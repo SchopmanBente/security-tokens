@@ -1,6 +1,17 @@
 from django.shortcuts import render
-from django.tokens.authentication import BadTokenAuthentication
+import json
+from rest_framework.authtoken.views import ObtainAuthToken
+from tokens.models import BadToken
+from rest_framework.response import Response
+
 
 # Create your views here.
-class MyView:
-    authentication_classes = (BadTokenAuthentication)
+
+
+class CustomObtainAuthToken(ObtainAuthToken):
+
+    def post(self, request, *args, **kwargs):
+        response = super(CustomObtainAuthToken, self).post(request, *args, **kwargs)
+        token = BadToken()
+        key = token.__str__()
+        return Response({'token': key})
