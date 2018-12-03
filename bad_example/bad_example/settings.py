@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tokens.apps.TokensConfig',
+    'tokens',
     'rest_framework.authtoken',
 ]
 
@@ -123,12 +123,3 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-# Django Rest Framework
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-
-     ),
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
-}

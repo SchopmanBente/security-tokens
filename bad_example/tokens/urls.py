@@ -19,4 +19,5 @@ from tokens.views import *
 
 urlpatterns = [
     path('authenticate', CustomObtainAuthToken.as_view()),
+    path('test', AuthenticatedView.as_view())
 ]
